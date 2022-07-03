@@ -29,26 +29,6 @@ contract JayToken {
         s_owening[msg.sender] = totalsupply;
     }
 
-    function name() public view returns (string memory) {
-        return (s_tokename);
-    }
-
-    function symbol() public view returns (string memory) {
-        return (s_tokensymbol);
-    }
-
-    function decimals() public view returns (uint8) {
-        return (i_decimals);
-    }
-
-    function totalSupply() public view returns (uint256) {
-        return (s_owening[owner]);
-    }
-
-    function balanceOf() public view returns (uint256) {
-        return (s_owening[msg.sender]);
-    }
-
     function _transfer(
         address _to,
         address _from,
@@ -95,5 +75,25 @@ contract JayToken {
         require(msg.sender == owner && _amount <= s_owening[owner], "Not allowed");
         s_owening[owner] -= _amount;
         emit Burn(_amount, owner);
+    }
+
+    function name() public view returns (string memory) {
+        return (s_tokename);
+    }
+
+    function symbol() public view returns (string memory) {
+        return (s_tokensymbol);
+    }
+
+    function decimals() public view returns (uint8) {
+        return (i_decimals);
+    }
+
+    function totalSupply() public view returns (uint256) {
+        return (s_owening[owner]);
+    }
+
+    function balanceOf() public view returns (uint256) {
+        return (s_owening[msg.sender]);
     }
 }

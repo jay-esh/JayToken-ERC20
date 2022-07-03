@@ -7,6 +7,8 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 
     const args = ["JayToken", "JAY", 10, 1e10]
 
+    console.log(`deploying on ${chainId}`)
+
     const JayToken = await deploy("JayToken", {
         from: deployer,
         args: args,
